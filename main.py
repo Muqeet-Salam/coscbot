@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+import os
 
 intents = discord.Intents.default()
 intents.guilds = True
@@ -80,4 +81,4 @@ async def unclaim(interaction: discord.Interaction, team_number: int):
         await interaction.response.send_message(f"✅ You have been removed from `{team_name}`.", ephemeral=True)
     except discord.Forbidden:
         await interaction.response.send_message("❌ I don't have permission to remove that role.", ephemeral=True)
-bot.run('')
+bot.run(os.getenv('DISCORD_TOKEN'))
